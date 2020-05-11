@@ -11,7 +11,7 @@ namespace RabbitMQProducer
             var factory = new ConnectionFactory() { HostName = "localhost" }; //where the RabbtiMqService is running
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
-            channel.QueueDeclare(queue: "Test"); //Creates a queue
+            channel.QueueDeclare(queue: "Test", false, false, false, null); //Creates a queue
 
 
             var message = "I am testing RabbitMQ";
